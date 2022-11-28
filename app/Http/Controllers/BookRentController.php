@@ -18,7 +18,7 @@ class BookRentController extends Controller
 {
     public function index()
     {
-        $users = User::where('id','!=', 2)->where('status','!=','inactive')->get();
+        $users = User::where('id','!=', 1)->where('status','!=','inactive')->get();
         $books = Book::all();
         return view('book-rent',['users' => $users,'books'=>$books]);
     }
@@ -67,7 +67,7 @@ class BookRentController extends Controller
     }
     public function returnBook()
     {
-        $users = User::where('id','!=', 2)->where('status','!=','inactive')->get();
+        $users = User::where('id','!=', 1)->where('status','!=','inactive')->get();
         $books = Book::all();
         return view("return-book",['users' => $users,'books' => $books]);
         

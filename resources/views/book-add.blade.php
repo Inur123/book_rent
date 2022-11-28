@@ -40,14 +40,14 @@
                 @endforeach
             </select>
         </div>
-        {{-- <div class="mb-2">
+        <div class="mb-2">
             <label for="writer" class="form-label">Writer</label>
             <select name="writers[]" id="writer" class="form-control select-multiple" multiple>
                 @foreach ($writers as $item)
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach
             </select>
-        </div> --}}
+        </div>
         <div class="mt-2">
             <button class="btn btn-success" type="submit">Save</button>
         </div>

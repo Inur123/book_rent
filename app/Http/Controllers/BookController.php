@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 
 
+use App\Models\Writer;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,7 +22,8 @@ class BookController extends Controller
     public function add()
     {
         $categories = Category::all();
-        return view('book-add',['categories' => $categories]);
+        $writers = Writer::all();
+        return view('book-add',['categories' => $categories,'writers'=>$writers]);
     }
 
     public function store(Request $request)
@@ -43,6 +45,7 @@ class BookController extends Controller
         $request['cover']=$newName;
         $book = Book::create($request->all());
         $book->categories()->sync($request->categories);
+        $book->writers()->sync($request->writers);
         return redirect('books')->with('status','Book Added Successfully');
     }
 
