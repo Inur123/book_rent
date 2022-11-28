@@ -6,6 +6,9 @@
 @section('content')
 
 <h1>Add New Writer</h1>
+<div class="my-4 d-flex justify-content-end ">
+    <a href="/writers"class="btn btn-primary me-3">Back</a>
+</div>
 <div class="mt-3 w-50">
     @if ($errors->any())
     <div class="alert alert-danger">

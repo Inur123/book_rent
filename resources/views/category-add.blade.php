@@ -7,6 +7,9 @@
 
 <h1>Add New Category</h1>
 <div class="mt-3 w-50">
+    <div class="my-4 d-flex justify-content-end ">
+        <a href="/categories"class="btn btn-primary me-3">Back</a>
+    </div>
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
