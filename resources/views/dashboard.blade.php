@@ -40,6 +40,17 @@
             </div>
         </div>
     </div>
+    <div class="col-lg-4">
+        <div class="card-data user">
+            <div class="row">
+                <div class="col-6"><i class="bi bi-people"></i></div>
+                <div class="col-6 d-flex flex-column justify-content-center align-items-end">
+                    <div class="card-desc">Writer</div>
+                    <div class="card-count">{{ $writer_count }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="mt-5">
     <h2>Rent Logs List</h2>
