@@ -32,6 +32,9 @@
   .card-data.user{
     background-color: rgb(7, 7, 104);
   }
+  .card-data.writer{
+    background-color: rgb(15, 104, 7);
+  }
   .card-data i {
     font-size: 80px;
   }
