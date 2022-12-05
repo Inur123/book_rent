@@ -25,6 +25,7 @@
                 <th>Code</th>
                 <th>Title</th>
                 <th>Category</th>
+                <th>Writer</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -40,11 +41,11 @@
                             {{ $category->name }} <br>
                         @endforeach
                     </td>
-                    {{-- <td>
+                    <td>
                         @foreach ($item->writers as $writer)
                             {{ $writer->name }} <br>
                         @endforeach
-                    </td> --}}
+                    </td>
                     <td>{{ $item->status }}</td>
                     <td>
                         <a href="/book-edit/{{ $item->slug }}" class="btn btn-warning">edit</a>

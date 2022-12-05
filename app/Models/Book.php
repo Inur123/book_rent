@@ -34,8 +34,8 @@ class Book extends Model
         return $this->belongsToMany(Category::class, 'book_category','book_id','category_id');
     }
 
-    // public function writers(): BelongsToMany
-    // {
-    //     return $this->belongsToMany(Writer::class, 'book_category','book_id','writer_id');
-    // }
+    public function writers(): BelongsToMany
+    {
+        return $this->belongsToMany(Writer::class, 'book_writer','book_id','writer_id');
+    }
 }

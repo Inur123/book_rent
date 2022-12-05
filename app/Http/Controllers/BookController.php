@@ -22,8 +22,8 @@ class BookController extends Controller
     public function add()
     {
         $categories = Category::all();
-
-        return view('book-add',['categories' => $categories]);
+        $writers = Writer::all();
+        return view('book-add',['categories' => $categories,'writers'=>$writers]);
     }
 
     public function store(Request $request)
@@ -45,6 +45,7 @@ class BookController extends Controller
         $request['cover']=$newName;
         $book = Book::create($request->all());
         $book->categories()->sync($request->categories);
+        $book->writers()->sync($request->writers);
         return redirect('books')->with('status','Book Added Successfully');
     }
 
@@ -52,7 +53,8 @@ class BookController extends Controller
     {
         $book = Book::where('slug', $slug)->first();
         $categories = Category::all();
-        return view('book-edit',['categories'=>$categories, 'book' =>$book]);
+        $writers = Writer::all();
+        return view('book-edit',['categories'=>$categories,'writers'=>$writers, 'book' =>$book]);
     }
 
     public function update(Request $request,$slug)
@@ -71,6 +73,9 @@ class BookController extends Controller
 
         if($request->categories){
             $book->categories()->sync($request->categories);
+        }
+        if($request->writers){
+            $book->writers()->sync($request->writers);
         }
 
         return redirect('books')->with('status','Book Updated Successfully');
