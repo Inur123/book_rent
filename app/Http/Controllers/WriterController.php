@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Exports\WritersExport;
 use App\Models\Writer;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\WritersImport;
+use App\Http\Controllers\Controller;
 
 class WriterController extends Controller
 {
     public function index()
     {
-        $writers = Writer::all();
+        $writers = Writer::paginate(10);
         return view('writer', ['writers' => $writers]);
     }
 
@@ -71,5 +74,15 @@ class WriterController extends Controller
         $writer->restore();
         return redirect('writers')->with('status', 'writer Restore Successfully');
 
+    }
+
+    public function import(){
+        Excel::import(new WritersImport, request()->file('file'));
+
+        return back(); 
+    }
+
+    public function export(){
+        return Excel::download(new WritersExport,'writer.xlsx');
     }
 }

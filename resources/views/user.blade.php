@@ -7,6 +7,7 @@
 <h1>User List</h1>
 
 <div class="my-4 d-flex justify-content-end ">
+    <a href="user-export"class="btn btn-danger">Excel</a>
     <a href="/user-banned"class="btn btn-secondary me-3">View Ban User</a>
     <a href="/registered-users"class="btn btn-primary">New Register User</a>
 </div>

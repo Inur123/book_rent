@@ -59,6 +59,9 @@ Route::middleware('only_admin')->group(function(){
     Route::get('category-destroy/{slug}',[CategoryController::class,'destroy']);
     Route::get('category-deleted',[CategoryController::class,'deletedCategory']);
     Route::get('category-restore/{slug}',[CategoryController::class,'restore']);
+    Route::post('category-import',[CategoryController::class,'import'])->name('category.import');
+    
+    Route::get('category-export',[CategoryController::class,'export'])->name('category.export');
     
     Route::get('writers', [WriterController::class,'index']);
     Route::get('writer-add',[WriterController::class,'add']);
@@ -70,6 +73,9 @@ Route::middleware('only_admin')->group(function(){
     Route::get('writer-deleted',[WriterController::class,'deletedWriter']);
     Route::get('writer-restore/{slug}',[WriterController::class,'restore']);
 
+    Route::post('writer-import',[WriterController::class,'import']);
+    Route::get('writer-export',[WriterController::class,'export']);
+
     Route::get('users', [UserController::class,'index']);
     Route::get('registered-users', [UserController::class,'registeredUser']);
     Route::get('user-detail/{slug}', [UserController::class,'show']);
@@ -78,6 +84,10 @@ Route::middleware('only_admin')->group(function(){
     Route::get('user-destroy/{slug}', [UserController::class,'destroy']);
     Route::get('user-banned', [UserController::class,'bannedUser']);
     Route::get('user-restore/{slug}', [UserController::class,'restore']);
+
+    Route::post('user-import', [UserController::class,'import']);
+    Route::get('user-export', [UserController::class,'export']);
+
 
     Route::get('book-rent',[BookRentController::class,'index']);
     Route::post('book-rent',[BookRentController::class,'store']);

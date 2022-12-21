@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Imports\Import;
 use App\Models\RentLogs;
+use App\Exports\UsersExport;
+use App\Imports\UsersImport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -66,5 +70,13 @@ class UserController extends Controller
         $user = User::withTrashed()->where('slug',$slug)->first();
         $user->restore();
         return redirect('users')->with('status','User Restored Successfully');
+    }
+    public function import(){
+        Excel::import(new UsersImport, request()->file('file'));
+
+        return back(); 
+    }
+    public function export(){
+        return Excel::download(new UsersExport,'user.xlsx');
     }
 }   

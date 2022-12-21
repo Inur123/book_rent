@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CategoriesExport;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Imports\CategoriesImport;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Redis;
+use PhpParser\Node\Expr\FuncCall;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(10);
         return view('category',['categories' =>$categories]);
     }
 
@@ -72,5 +76,15 @@ class CategoryController extends Controller
         $category->restore();
         return redirect('categories')->with('status','Category Restore Successfully');
 
+    }
+
+    public function import(){
+        Excel::import(new CategoriesImport, request()->file('file'));
+
+        return back(); 
+    }
+
+    public function export(){
+        return Excel::download(new CategoriesExport,'category.xlsx');
     }
 }

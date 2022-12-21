@@ -5,7 +5,14 @@
 @section('content')
 
 <h1>Writer List</h1>
+<form action="writer-import" method="POST" enctype="multipart/form-data">
+    @csrf
+    <input type="file" name="file" class="form-control">
+    <p class="text-danger">masukkan file Excel baru upload</p>
+    <button class="btn btn-danger">Upload</button>
+</form>
 <div class=" mt-5 d-flex justify-content-end">
+    <a href="writer-export"class="btn btn-danger">Excel</a>
     <a href="writer-deleted"class="btn btn-secondary me-3">View Delete Data</a>
     <a href="writer-add"class="btn btn-primary">Add Data</a>
 </div>
@@ -40,6 +47,9 @@
             @endforeach
         </tbody>
     </table>
+    <div class="card-footer">
+        {{ $writers->links() }}
+    </div>
 </div>
 
 @endsection
