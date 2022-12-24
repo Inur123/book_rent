@@ -37,6 +37,9 @@
                         {{ $item->status }}
                       </p>
                     </div>
+                    <div>
+                        <a href="/book-detail/{{ $item->slug }}"class="btn btn-primary w-100">Detail Buku</a>
+                    </div>
                 </div>
             </div>
             @endforeach

@@ -63,8 +63,8 @@
         <div class="mb-2">
             <label for="writer" class="form-label">Writer</label>
             <select name="writers[]" id="writer" class="form-control select-multiple">
+                <option disabled selected value> -- select an writer -- </option>
                 @foreach ($writers as $item)
-                <option value="disabled selected value"></option>
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach
             </select>
