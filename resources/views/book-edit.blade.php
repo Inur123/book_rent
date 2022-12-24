@@ -7,7 +7,11 @@
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <h1>Edit New Books</h1>
+
 <div class="mt-3 w-50">
+  <div class="my-2 d-flex justify-content-end">
+    <a href="/books"class="btn btn-info">Back</a>
+  </div>
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -58,14 +62,15 @@
         </div>
         <div class="mb-2">
             <label for="writer" class="form-label">Writer</label>
-            <select name="writers[]" id="writer" class="form-control select-multiple" multiple>
+            <select name="writers[]" id="writer" class="form-control select-multiple">
                 @foreach ($writers as $item)
+                <option value="disabled selected value"></option>
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach
             </select>
         </div>
         <div class="mb-3">
-            <label for="currentWriter">current Category</label>
+            <label for="currentWriter">current Writer</label>
             <ul>
                 @foreach ($book->writers as $writer)
                 <li>{{ $writer->name }}</li>

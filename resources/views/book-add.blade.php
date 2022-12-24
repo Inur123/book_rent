@@ -45,7 +45,8 @@
         </div>
         <div class="mb-2">
             <label for="writer" class="form-label">Writer</label>
-            <select name="writers[]" id="writer" class="form-control select-multiple" multiple>
+            <select name="writers[]" id="writer" class="form-control select-multiple">
+                <option value="disabled selected value"></option>
                 @foreach ($writers as $item)
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach

@@ -25,7 +25,11 @@ class BookController extends Controller
         $writers = Writer::all();
         return view('book-add',['categories' => $categories,'writers'=>$writers]);
     }
-
+    public function show($slug)
+    {
+        $books = Book::where('slug',$slug)->first();
+        return view('book-detail',['book' =>$books]);
+    }
     public function store(Request $request)
     {
         $validated = $request->validate([
