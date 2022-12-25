@@ -16,24 +16,13 @@
   }
   .active{
     background: #000;
-    border-right: solid 8px orange;
+   
   }
   .card-data{
     border: solid 1px;
     padding: 10px 20px;
     color: white;
-  }
-  .card-data.book{
-    background-color: teal;
-  }
-  .card-data.category{
-    background-color: rgb(197, 129, 3);
-  }
-  .card-data.user{
-    background-color: rgb(7, 7, 104);
-  }
-  .card-data.writer{
-    background-color: rgb(15, 104, 7);
+    border-radius: 5%;
   }
   .card-data i {
     font-size: 80px;

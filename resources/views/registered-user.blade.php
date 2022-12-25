@@ -9,51 +9,6 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap.min.css">	
 
 <h1>User Registered User List</h1>
-{{-- <form action="user-import" method="POST" enctype="multipart/form-data">
-    @csrf
-    <input type="file" name="file" class="form-control">
-    <p class="text-danger">masukkan file Excel baru upload</p>
-    <button class="btn btn-success">Upload</button>
-</form>
-
-<div class="my-4 d-flex justify-content-end ">
-    <a href="/users"class="btn btn-primary">Approve User List</a>
-</div>
-
-
-    <div class="my-5">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Username</th>
-                    <th>Phone</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($registeredUsers as $item)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->username }}</td>    
-                    <td>
-                        @if ($item->phone)
-                            {{ $item->phone }}
-                        @else
-                            -
-                        @endif
-                    </td>
-                    <td>
-                        <a href="/user-detail/{{ $item->slug }}" class="btn btn-warning">Detail</a>
-                    </td>
-                </tr>   
-                @endforeach
-            </tbody>
-        </table>
-        <div class="card-footer">
-            {{ $registeredUsers->links() }}
-        </div>
-    </div> --}}
 
 <body>
     <form action="user-import" method="POST" enctype="multipart/form-data">
