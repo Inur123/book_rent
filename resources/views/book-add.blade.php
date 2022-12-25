@@ -38,6 +38,7 @@
         <div class="mb-2">
             <label for="category" class="form-label">Category</label>
             <select name="categories[]" id="category" class="form-control select-multiple" multiple>
+                
                 @foreach ($categories as $item)
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach
@@ -46,7 +47,7 @@
         <div class="mb-2">
             <label for="writer" class="form-label">Writer</label>
             <select name="writers[]" id="writer" class="form-control select-multiple">
-                <option value="disabled selected value"></option>
+                <option disabled selected value> -- select an writer -- </option>
                 @foreach ($writers as $item)
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach
