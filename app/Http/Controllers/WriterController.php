@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Exports\WritersExport;
+use App\Http\Controllers\Controller;
+use App\Imports\WritersImport;
 use App\Models\Writer;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\WritersImport;
-use App\Http\Controllers\Controller;
 
 class WriterController extends Controller
 {
@@ -25,7 +25,7 @@ class WriterController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => ['required','max:100'],
+            'name' => ['required', 'max:100'],
         ]);
 
         $writer = Writer::create($request->all());
@@ -76,13 +76,15 @@ class WriterController extends Controller
 
     }
 
-    public function import(){
+    public function import()
+    {
         Excel::import(new WritersImport, request()->file('file'));
 
-        return back(); 
+        return back();
     }
 
-    public function export(){
-        return Excel::download(new WritersExport,'writer.xlsx');
+    public function export()
+    {
+        return Excel::download(new WritersExport, 'writer.xlsx');
     }
 }
