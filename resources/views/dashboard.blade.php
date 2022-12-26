@@ -4,6 +4,7 @@
     
 @section('content')
 
+
 <h1>Wellcome, {{ Auth::user()->username }}</h1>
 
 <div class="row mt-3">
@@ -57,4 +58,7 @@
     <x-rent-log-table :rentlog='$rent_logs'/>
 </div>
 
+
 @endsection
+
+

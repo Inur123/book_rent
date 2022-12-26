@@ -1,63 +1,90 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sewa Buku | Login   </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sewa Buku | Log in</title>
 
-  <style>
-    .main{
-        height: 100vh;
-        box-sizing: border-box;
-    }
-    .login-box{
-        width: 500px;
-        border: solid 1px;
-        padding: 30px;
-    }
-    form div {
-        margin-bottom: 15px;
-    }
-  </style>
-  <body>
-    
-    <div class="main d-flex flex-column justify-content-center align-items-center">
-        @if (session('status'))
-            <div class="alert alert-danger" style="width: 500px">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition login-page">
+    @if (session('status'))
+            <div class="alert alert-danger" style="width: 350px">
                     {{ session('message') }}
             </div>
         @endif
-        <div class="login-box">
-            <form action="" method="post">
-                @csrf
-                <div>
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control" required>
-                </div>
-                <div>
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" required>
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-primary form-control">Login</button>
-                </div>
-                <div class="text-center">
-                    don't have account?<a href="register"> Sign Up</a>
-                </div>
-            </form>
+<div class="login-box">
+  <div class="login-logo">
+    <a href=""><b>Login</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to Book Rent</p>
+
+      <form action="" method="post">
+        @csrf
+        <div class="input-group mb-3">
+          <input type="username" class="form-control" placeholder="Username" name="username" id="username" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
         </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-12 ">
+            <button type="submit" class="btn btn-primary btn-block ">Sign In</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      {{-- <div class="social-auth-links text-center mb-3">
+        <p>- OR -</p>
+        <a href="#" class="btn btn-block btn-primary">
+          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+        </a>
+        <a href="#" class="btn btn-block btn-danger">
+          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+        </a>
+      </div> --}}
+      <!-- /.social-auth-links -->
+
+      {{-- <p class="mb-1">
+        <a href="forgot-password.html">I forgot my password</a>
+      </p> --}}
+      <p class="mb-0">
+        <a href="register" class="text-center">Register a new membership</a>
+      </p>
     </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
 
+<!-- jQuery -->
+<script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/AdminLTE/dist/js/adminlte.min.js"></script>
 
-
-
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>
