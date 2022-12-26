@@ -13,7 +13,7 @@ class WriterController extends Controller
 {
     public function index()
     {
-        $writers = Writer::paginate(10);
+        $writers = Writer::all();
         return view('writer', ['writers' => $writers]);
     }
 
